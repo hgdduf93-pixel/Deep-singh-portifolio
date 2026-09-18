@@ -1,0 +1,24 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "artifacts/*",
+    "lib/*",
+    "scripts"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@workspace/portfolio-hero-video",
+    "build": "npm run build --workspace=@workspace/portfolio-hero-video",
+    "lint": "tsc -p ./artifacts/portfolio-hero-video/tsconfig.json --noEmit",
+    "typecheck": "tsc --build"
+  },
+  "dependencies": {
+    "@replit/connectors-sdk": "^0.4.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "typescript": "~5.9.3"
+  }
+}

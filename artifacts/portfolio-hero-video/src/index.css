@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700;1,800&family=Playfair+Display:ital,wght@1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: #090a0f;
+  --foreground: #f4f4f6;
+  --muted: #8b8d9e;
+  --surface: #111218;
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --accent: #e4e4e9;
+  --accent-glow: rgba(255, 255, 255, 0.12);
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-singh: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-singh {
+  font-family: var(--font-singh);
+  font-style: italic;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Glassmorphism Styles */
+.glass-nav {
+  background: rgba(13, 14, 20, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-dock,
+.glass-card {
+  background: rgba(10, 10, 14, 0.68);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-dock:hover,
+.glass-card:hover {
+  background: rgba(14, 14, 20, 0.74);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Custom Cursor (Hidden on touch devices) */
+@media (pointer: coarse) {
+  .custom-cursor-element {
+    display: none !important;
+  }
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: default;
+  }
+}
+
+/* Subtle Animated Ambient Glow */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+/* Mobile Horizontal Scroll Dock Snap */
+.dock-scroll-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dock-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Accessible reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

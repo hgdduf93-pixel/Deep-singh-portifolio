@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Portfolio Hero Video"
+description = "A cinematic single-page portfolio hero for a branding studio, matching the supplied reference composition and using the supplied video as a clear looping background."
+version = "1.0.0"
+id = "artifacts/portfolio-hero-video"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23263
+
+[services.development]
+run = "pnpm --filter @workspace/portfolio-hero-video run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/portfolio-hero-video", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/portfolio-hero-video/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23263"
+BASE_PATH = "/"

@@ -1,0 +1,6 @@
+{
+  "name": "Portfolio Hero Video",
+  "description": "Deep Singh — Android App Developer • Vibe Coder personal portfolio with cinematic video hero and 3D interactive macOS-style project dock",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
